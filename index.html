@@ -1,12 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clima por País y Ciudad</title>
+    <link rel="stylesheet" href="/styles.css/styles.css">
+    <!-- este script contiene el cdn de la libreria de jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <h1>Hola mundo</h1>
-    <script src="scripts/main.js"></script>
+    <div class="container">
+        <h1>Consultar Clima por País y Ciudad</h1>
+        <label for="pais">Elige un país:</label>
+    
+        <!-- se selecciona un pais  -->
+        <select id="pais">
+            <option value="Argentina">Argentina</option>
+            <option value="España">España</option>
+            <option value="México">México</option>
+            <option value="Francia">Francia</option>
+            <option value="EEUU">EEUU</option>
+        </select>
+    
+        <label for="ciudad">Ingresa una ciudad:</label>
+        <input type="text" id="ciudad" placeholder="ingrese una ciudad" />
+        <!-- al pulsarlo, se ejecutara la funcion en el main -->
+        <button id="consultarClima">Consultar Clima</button>
+        <!-- dentro de este contendor se mostrara la informacion devuelta por el api -->
+        <div id="resultado"></div>
+        <!-- este script conecta la vista con la funcionalidad -->
+        <script src="/scripts/main.js"></script>
+    </div>
 </body>
 </html>
