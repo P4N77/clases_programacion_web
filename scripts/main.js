@@ -58,3 +58,63 @@ $(document).ready(function() {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Clave de API
+    const apiKey = '3b5accbcce6e3e2a8a33da60a746dfc3';
+
+    // Códigos de los países
+    const codigosPais = {
+        "Argentina": "AR",
+        "España": "ES",
+        "México": "MX",
+        "Francia": "FR",
+        "EEUU": "US"
+    };
+
+    // Agregar evento al botón de consulta
+    document.getElementById("consultarClima").addEventListener("click", function () {
+        const pais = document.getElementById("pais").value;
+        const ciudad = document.getElementById("ciudad").value;
+        const resultado = document.getElementById("resultado");
+
+        // Validar que se ingrese una ciudad
+        if (!ciudad) {
+            resultado.innerHTML = '<p>Por favor, ingresa una ciudad.</p>';
+            return;
+        }
+
+        // Obtener código del país seleccionado
+        const codigoPais = codigosPais[pais];
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad},${codigoPais}&appid=${apiKey}&units=metric&lang=es`;
+
+        // Hacer la petición con Fetch API
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status === 404 ? 
+                        'La ciudad o el país ingresado no existe. Por favor, verifica la información y vuelve a intentarlo.' 
+                        : 'Error al obtener la información.');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Capturar información del clima
+                const descripcion = data.weather[0].description;
+                const temperatura = data.main.temp;
+                const humedad = data.main.humidity;
+
+                // Mostrar resultado en el contenedor
+                resultado.innerHTML = `
+                    <h3>Clima en ${ciudad}, ${pais}</h3>
+                    <p><strong>Descripción:</strong> ${descripcion}</p>
+                    <p><strong>Temperatura:</strong> ${temperatura} °C</p>
+                    <p><strong>Humedad:</strong> ${humedad} %</p>
+                `;
+            })
+            .catch(error => {
+                resultado.innerHTML = `<p>${error.message}</p>`;
+            });
+    });
+});
