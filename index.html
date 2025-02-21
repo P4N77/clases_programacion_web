@@ -4,32 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clima por País y Ciudad</title>
-    <link rel="stylesheet" href="/styles.css/styles.css">
-    <!-- este script contiene el cdn de la libreria de jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="./styles.css/styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Consultar Clima por País y Ciudad</h1>
-        <label for="pais">Elige un país:</label>
+        
+        <!-- Formulario para la selección del país y la ciudad -->
+        <form id="formularioClima">
+            <label for="pais">Elige un país:</label>
+            <select id="pais">
+                <option value="Argentina">Argentina</option>
+                <option value="España">España</option>
+                <option value="México">México</option>
+                <option value="Francia">Francia</option>
+                <option value="EEUU">EEUU</option>
+                <option value="Australia">Australia</option>
+                <option value="Canadá">Canadá</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Alemania">Alemania</option>
+                <option value="Bélgica">Bélgica</option>
+                <option value="Dinamarca">Dinamarca</option>
+                <option value="Finlandia">Finlandia</option>
+                <option value="Grecia">Grecia</option>
+                <option value="Hungría">Hungría</option>
+                <option value="Irlanda">Irlanda</option>
+                <option value="Islandia">Islandia</option>
+                <option value="Italia">Italia</option>
+                <option value="Japón">Japón</option>
+                <option value="Malta">Malta</option>
+                <option value="Noruega">Noruega</option>
+                <option value="Polonia">Polonia</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Reino Unido">Reino Unido</option>
+                <option value="Rumania">Rumania</option>
+                <option value="Suiza">Suiza</option>
+                <option value="Turquía">Turquía</option>
+                <option value="Vietnam">Vietnam</option>
+                <option value="Afganistán">Afganistán</option>
+                <option value="Albania">Albania</option>
+                <option value="Armenia">Armenia</option>
+                <option value="Azerbaiyán">Azerbaiyán</option>
+                <option value="Bahréin">Bahréin</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Bosnia y Herzegovina">Bosnia y Herzegovina</option>
+                <option value="Burkina Faso">Burkina Faso</option>
+                <option value="Burundi">Burundi</option>
+                <option value="Cabo Verde">Cabo Verde</option>
+                <option value="Camerún">Camerún</option>
+                <option value="Chad">Chad</option>
+                <option value="Comoras">Comoras</option>
+                <option value="Costa Rica">Costa Rica</option>
+            </select>
     
-        <!-- se selecciona un pais  -->
-        <select id="pais">
-            <option value="Argentina">Argentina</option>
-            <option value="España">España</option>
-            <option value="México">México</option>
-            <option value="Francia">Francia</option>
-            <option value="EEUU">EEUU</option>
-        </select>
+            <label for="ciudad">Ingresa una ciudad:</label>
+            <input type="text" id="ciudad" placeholder="ingrese una ciudad" />
     
-        <label for="ciudad">Ingresa una ciudad:</label>
-        <input type="text" id="ciudad" placeholder="ingrese una ciudad" />
-        <!-- al pulsarlo, se ejecutara la funcion en el main -->
-        <button id="consultarClima">Consultar Clima</button>
-        <!-- dentro de este contendor se mostrara la informacion devuelta por el api -->
+            <!-- Botón para consultar el clima -->
+            <button type="button" id="consultarClima">Consultar Clima</button>
+        </form>
+
+        <!-- Contenedor para mostrar la información del clima -->
         <div id="resultado"></div>
-        <!-- este script conecta la vista con la funcionalidad -->
-        <script src="/scripts/main.js"></script>
+
+        <!-- Script para manejar la funcionalidad -->
+        <script src="./scripts/main.js"></script>
     </div>
 </body>
 </html>
